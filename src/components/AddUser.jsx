@@ -4,7 +4,7 @@ import { myContext } from "../services/MyContextComponent"
 
 function AddUser () {
 
-    const { actions } = useContext(myContext)
+    const { data } = useContext(myContext)
     const [newUser, setNewUser] = useState("")
 
     return (
@@ -15,7 +15,7 @@ function AddUser () {
                 value={newUser}
                 onChange={(ev)=>{setNewUser(ev.target.value)}}
             />
-            <button onClick={()=>{actions.addUser(newUser)}}>
+            <button onClick={()=>{data.actions.addUser(newUser)}}>
                 Añadir
             </button>
         </>

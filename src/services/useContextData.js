@@ -1,23 +1,23 @@
 import { useState } from "react"
+import useIdsContext from "./useIdsContext"
 
 function useContextData () {
 
     const [ users, setUsers ] = useState([])
     const [ articles, setArticles ] = useState([])
     const [ sales, setSales ] = useState([])
-    const [ ids, setIds ] = useState({})
+    const idsContext = useIdsContext()
 
     return {
         states: {
             users,
             articles,
             sales,
-            ids
         },
         actions: {
             addUser: function (user) {
                 const newUser = {
-                    id: this.newId("users"),
+                    id: idsContext.newId("users"),
                     name: user
                 }
                 setUsers([...users, newUser])
@@ -36,12 +36,6 @@ function useContextData () {
                     articleId: articleId
                 }
                 setSales([...sales, newSale])
-            },
-            newId: function (stateName) {
-                const newIds = {...ids}
-                newIds[stateName] = newIds.hasOwnProperty(stateName) ? newIds[stateName]+1 : 0
-                setIds(newIds)
-                return newIds[stateName]
             },
         }
     }

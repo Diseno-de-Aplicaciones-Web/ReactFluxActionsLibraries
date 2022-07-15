@@ -6,14 +6,14 @@ import UserList from "../components/UsersList"
 
 function Users () {
 
-    const { states } = useContext(myContext)
+    const { data } = useContext(myContext)
 
     return (
         <>
             <h2>Vista de usuarios</h2>
             <AddUser/>
             <h3>Users</h3>
-            <UserList users={states.users}/>
+            <UserList users={data.states.users}/>
         </>
     )
 }

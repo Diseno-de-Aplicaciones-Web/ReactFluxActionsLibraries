@@ -11,7 +11,7 @@ import Sales from "./views/Sales"
 
 function Layout () {
 
-    const { states } = useContext(myContext)
+    const { data } = useContext(myContext)
 
     return (
         <>
@@ -38,7 +38,7 @@ function Layout () {
             <footer>
                 <hr/>
                 <h3>Contadores</h3>
-                <StatesCounter states={{Usuarios: states.users, Artículos: states.articles}}/>
+                <StatesCounter states={{Usuarios: data.states.users, Artículos: data.states.articles}}/>
             </footer>
         </>
     )
