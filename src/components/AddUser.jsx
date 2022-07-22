@@ -1,10 +1,10 @@
 import { useState, useContext } from "react"
 
-import { myContext } from "../services/MyContextComponent"
+import { myContext } from "../context/MyContextComponent"
 
 function AddUser () {
 
-    const { data } = useContext(myContext)
+    const { actions } = useContext(myContext)
     const [newUser, setNewUser] = useState("")
 
     return (
@@ -15,7 +15,7 @@ function AddUser () {
                 value={newUser}
                 onChange={(ev)=>{setNewUser(ev.target.value)}}
             />
-            <button onClick={()=>{data.actions.addUser(newUser)}}>
+            <button onClick={()=>{actions.addUser(newUser)}}>
                 Añadir
             </button>
         </>
